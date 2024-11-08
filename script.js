@@ -1,13 +1,13 @@
 console.clear();
 
-const elCloth = document.querySelectorAll(".cloth");
+const elShoes = document.querySelectorAll(".shoe");
 
-[...elCloth].forEach((cloth) => {
-  cloth.addEventListener("click", () => {
-    [...document.querySelectorAll(".cloth[data-active]")].forEach(
+[...elShoes].forEach((shoe) => {
+  shoe.addEventListener("click", () => {
+    [...document.querySelectorAll(".shoe[data-active]")].forEach(
       (el) => delete el.dataset.active
     );
 
-    cloth.dataset.active = true;
+    shoe.dataset.active = true;
   });
 });
