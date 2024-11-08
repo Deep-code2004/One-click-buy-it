@@ -20,8 +20,8 @@
 }
 
 img {
-   display: block;  
-  max-width: 100%; 
+  display: block;
+  max-width: 100%;
 }
 
 html,
@@ -42,22 +42,21 @@ body {
 
 #app {
   background: white;
-  height: 100vmin;
-  width: 55vmin;
+  height: 90vmin;
+  width: 50vmin;
   background: rgb(40, 40, 40);
-  border-radius: 5vmin;
+  border-radius: 8vmin;
   border: 2vmin solid #cfe8ef;
 }
 
-.cloth-selector {
+.shoe-selector {
   display: grid;
   grid-template: 1/1;
   justify-content: center;
   align-items: center;
   height: 90%;
 }
-
-.cloth-selector:before {
+.shoe-selector:before {
   content: "";
   height: 10vmin;
   width: 10vmin;
@@ -70,8 +69,7 @@ body {
 }
 
 /* ---------------------------------- */
-
-.cloth {
+.shoe {
   height: 100%;
   grid-area: 1/1;
   display: grid;
@@ -79,8 +77,7 @@ body {
   grid-template-rows: 50% auto 1fr auto;
   padding: 1rem;
 }
-
-.cloth:before {
+.shoe:before {
   content: "";
   position: absolute;
   top: 0;
@@ -91,39 +88,38 @@ body {
   background-image: linear-gradient(to bottom, transparent, transparent 40%, white);
   border-radius: 1rem;
 }
-
-.cloth > .clothbox {
+.shoe > .shoebox {
   grid-column: 1/-1;
 }
-.cloth > .cloth-header {
+.shoe > .shoe-header {
   grid-column: 1/-1;
 }
-.cloth > .cloth-price {
+.shoe > .shoe-price {
   grid-column: 1/-1;
 }
-.cloth > .cloth-rating {
+.shoe > .shoe-rating {
   grid-column: 1/2;
 }
 
-.cloth-header {
+.shoe-header {
   text-align: center;
 }
 
-.cloth-sub-heading {
+.shoe-subheading {
   display: inline-block;
   text-transform: uppercase;
   color: #fff;
   margin-bottom: 0.5rem;
 }
 
-.cloth-heading {
+.shoe-heading {
   margin: 0;
   font-weight: 300;
   font-size: 1.25rem;
   color:#fedfe4;
 }
 
-.cloth-price {
+.shoe-price {
   display: inline-block;
   text-align: center;
   font-size: 3rem;
@@ -132,11 +128,11 @@ body {
   justify-content: center;
   align-items: center;
 }
-.cloth-price > span {
+.shoe-price > span {
   display: inline-block;
 }
 
-.cloth-rating {
+.shoe-rating {
   height: 3rem;
   width: 3rem;
   box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
@@ -147,23 +143,22 @@ body {
   border: 1px solid #eee;
   overflow: hidden;
 }
-
-.cloth-rating > span {
+.shoe-rating > span {
   text-align: center;
   display: inline-block;
   width: 100%;
 }
 
 /* ---------------------------------- */
-.cloth-selector {
+.shoe-selector {
   perspective: 80vmin;
 }
 
-.cloth {
+.shoe {
   transform-style: preserve-3d;
 }
 
-.clothbox {
+.shoebox {
   --width: 23vmin;
   --height: 18vmin;
   --depth: 10vmin;
@@ -193,7 +188,6 @@ body {
   transform-style: preserve-3d;
   transform: translate(-50%, -50%) var(--rotation) translateZ(calc(var(--z) / 2));
 }
-
 .side.right:before, .side.left:before, .side.back:before,
 .side .lid:before {
   --color: var(--tan);
@@ -208,7 +202,6 @@ body {
   border: solid 2px var(--color-dark);
   background-image: linear-gradient(to right, var(--color-dark), var(--color));
 }
-
 .side.right:before {
   background-image: linear-gradient(to left, var(--color-dark), var(--color));
 }
@@ -284,11 +277,10 @@ body {
 }
 
 /* ---------------------------------- */
-
-.clothbox .top {
+.shoebox .top {
   background: none;
 }
-.clothbox .lid {
+.shoebox .lid {
   display: block;
   position: absolute;
   top: 0;
@@ -307,58 +299,57 @@ body {
 }
 
 /* ---------------------------------- */
-.cloth {
+.shoe {
   width: 40vmin;
   pointer-events: none;
 }
-.cloth:not([data-active]) * {
+.shoe:not([data-active]) * {
   visibility: hidden;
 }
-.cloth [data-animate],
-.cloth [data-animate] * {
+.shoe [data-animate],
+.shoe [data-animate] * {
   visibility: visible !important;
 }
-.cloth [data-animate] {
+.shoe [data-animate] {
   transform: translateX(-100%);
   opacity: 0;
   transition-property: transform, opacity;
   transition-duration: var(--duration);
   transition-timing-function: var(--fast-ease-out), var(--fade-ease);
 }
-
-.cloth .clothbox {
+.shoe .shoebox {
   cursor: pointer;
   pointer-events: auto;
   transform: rotateX(5deg) translateX(-120%);
   transition: transform var(--duration) var(--ease) !important;
   opacity: 1;
 }
-.cloth[data-active] {
+.shoe[data-active] {
   z-index: 4;
 }
-.cloth[data-active] > * {
+.shoe[data-active] > * {
   pointer-events: auto;
 }
-.cloth[data-active]:before {
+.shoe[data-active]:before {
   display: block;
 }
-.cloth[data-active] [data-animate] {
+.shoe[data-active] [data-animate] {
   transform: none;
   opacity: 1;
   transition-delay: calc(var(--duration) / 2);
   transition-duration: var(--duration);
   transition-timing-function: var(--fast-ease-in), var(--fade-ease);
 }
-
-.cloth[data-active] .clothbox {
+.shoe[data-active] .shoebox {
   transform: rotateX(5deg);
 }
-.cloth[data-active] ~ .cloth [data-animate] {
+.shoe[data-active] ~ .shoe [data-animate] {
   transform: translateX(100%);
 }
-.cloth[data-active] ~ .cloth .clothbox {
+.shoe[data-active] ~ .shoe .shoebox {
   transform: rotateX(5deg) translateX(120%);
 }
-.cloth[data-active] + .cloth {
+.shoe[data-active] + .shoe {
   z-index: 3;
 }
+
